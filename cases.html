@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -316,7 +316,7 @@ a:hover{color:#F37021}
       </div>
       <span style="font-size:13px;font-weight:700;letter-spacing:0.12em;color:#74675E">{{ countLabel }}</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,300px),1fr));gap:clamp(36px,3vw,48px) clamp(16px,2vw,28px)">
+    <div data-mx="grid2" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,300px),1fr));gap:clamp(36px,3vw,48px) clamp(16px,2vw,28px)">
       <sc-for list="{{ cases }}" as="c" hint-placeholder-count="9">
         <button type="button" sc-camel-on-click="{{ c.onOpen }}" sc-camel-on-mouse-enter="{{ c.onEnter }}" sc-camel-on-mouse-leave="{{ c.onLeave }}" style="display:flex;flex-direction:column;gap:18px;padding:0;background:none;border:0;text-align:left;cursor:pointer;color:inherit">
           <div style="position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:2px">

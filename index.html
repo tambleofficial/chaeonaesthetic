@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -358,7 +358,7 @@ input,textarea,select,button{font-family:inherit}
     </div>
   </div>
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px);margin-top:clamp(64px,8vw,110px)">
-    <div style="display:grid;grid-template-columns:{{ trustCols }};border-top:1px solid #ECE2D9;border-bottom:1px solid #ECE2D9">
+    <div data-mx="trust" style="display:grid;grid-template-columns:{{ trustCols }};border-top:1px solid #ECE2D9;border-bottom:1px solid #ECE2D9">
       <sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
         <div style="display:flex;align-items:center;gap:12px;padding:24px 8px;font-size:13px;font-weight:600;letter-spacing:0.16em;color:#34251E"><span style="width:8px;height:8px;background:#F37021;flex:none"></span>{{ t }}</div>
       </sc-for>
@@ -373,7 +373,7 @@ input,textarea,select,button{font-family:inherit}
       <div style="display:flex;flex-direction:column;gap:18px"><span data-reveal="text" style="font-size:12px;font-weight:600;letter-spacing:0.3em;color:#F37021">CARE CATEGORY</span><h2 data-reveal="text" style="margin:0;font-size:clamp(28px,3.2vw,46px);line-height:1.4;font-weight:600;letter-spacing:-0.03em;color:#34251E;text-wrap:balance">분석하고, 이해하고,<br>나에게 맞게 관리합니다.</h2></div>
       <a href="program.html" style="font-size:13px;font-weight:600;letter-spacing:0.18em;color:#F37021;padding-bottom:6px;border-bottom:1px solid #ECE2D9" style-hover="color:#F37021">PROGRAM →</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));gap:clamp(20px,2.4vw,32px)">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));gap:clamp(20px,2.4vw,32px)">
       <a href="program.html" style="display:flex;flex-direction:column;gap:20px;color:#34251E" style-hover="color:#34251E">
         <div data-reveal="image" style="position:relative;aspect-ratio:960/1200;overflow:hidden;border-radius:2px;background:url(&quot;/assets/b/a2d898bef6.jpg&quot;) center/cover no-repeat, #FAF6F2"></div>
         <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px;border-top:1px solid #ECE2D9">
@@ -403,7 +403,7 @@ input,textarea,select,button{font-family:inherit}
         </div>
       </a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));border-top:1px solid #ECE2D9;border-bottom:1px solid #ECE2D9">
+    <div data-mx="feat3" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));border-top:1px solid #ECE2D9;border-bottom:1px solid #ECE2D9">
       <div style="display:flex;flex-direction:column;gap:8px;padding:28px clamp(16px,2vw,28px);"><span style="font-size:13px;font-weight:600;color:#34251E">01</span><span style="font-size:17px;font-weight:600;color:#34251E">AI 3D 바디 분석</span><span style="font-size:16px;line-height:1.7;color:#34251E;font-weight:500">모티피지오로 확인하는 체형·자세 패턴</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;padding:28px clamp(16px,2vw,28px);border-left:1px solid #ECE2D9"><span style="font-size:13px;font-weight:600;color:#34251E">02</span><span style="font-size:17px;font-weight:600;color:#34251E">1:1 퍼스널 상담</span><span style="font-size:16px;line-height:1.7;color:#34251E;font-weight:500">개인의 컨디션과 고민 파악</span></div>
       <div style="display:flex;flex-direction:column;gap:8px;padding:28px clamp(16px,2vw,28px);border-left:1px solid #ECE2D9"><span style="font-size:13px;font-weight:600;color:#34251E">03</span><span style="font-size:17px;font-weight:600;color:#34251E">맞춤 밸런스 케어</span><span style="font-size:16px;line-height:1.7;color:#34251E;font-weight:500">경락·롤링·도수 테크닉의 조화</span></div>
@@ -415,7 +415,7 @@ input,textarea,select,button{font-family:inherit}
 <section id="brand" ref="{{ philoRef }}" data-screen-label="02 Brand Philosophy" style="position:relative;padding:clamp(76px,12vw,170px) 0;background:#FFFFFF">
   <div ref="{{ wmRef }}" style="display:none"></div>
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:grid;grid-template-columns:{{ splitCols }};gap:clamp(48px,7vw,110px);align-items:center">
-    <div data-reveal="image" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #ECE2D9">
+    <div data-mx="hanbox" data-reveal="image" style="display:grid;grid-template-columns:1fr 1fr;border:1px solid #ECE2D9">
       <div style="display:flex;flex-direction:column;justify-content:space-between;gap:28px;aspect-ratio:3/4;padding:clamp(24px,3vw,40px);background:#F37021">
         <span style="font-size:clamp(88px,11vw,170px);line-height:1;font-weight:600;color:#FFFFFF">溫</span>
         <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:600;letter-spacing:0.2em;color:#FFFFFF">WARMTH</span><span style="font-size:16px;font-weight:600;line-height:1.6;color:#FFFFFF">따뜻하다.<br>온도가 알맞다</span></span>
@@ -451,7 +451,7 @@ input,textarea,select,button{font-family:inherit}
       </div>
       <span style="position:relative;display:block;height:1px;margin-top:6px;background:#F37021"><span style="position:absolute;left:56px;top:-3px;width:7px;height:7px;border-radius:50%;background:#F37021"></span></span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(max(200px, 22%),1fr));padding:0 1px 1px 0">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(max(200px, 22%),1fr));padding:0 1px 1px 0">
       <a data-reveal="image" href="program.html" style="display:flex;flex-direction:column;gap:12px;padding:clamp(30px,3vw,40px) clamp(24px,2.6vw,32px);background:#FFFFFF;border:1px solid #E9E2DA;margin:0 -1px -1px 0;color:#2B211C;transition:background .4s" style-hover="background:#FFF8F2;color:#2B211C">
         <span style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:#9A8F86">01 · BODY</span>
         <span style="font-size:clamp(20px,1.7vw,23px);font-weight:700;letter-spacing:-0.02em;color:#2B211C">바디 케어</span>
@@ -489,7 +489,7 @@ input,textarea,select,button{font-family:inherit}
 <section id="cases" data-screen-label="04 Selected Cases" style="position:relative;padding:clamp(76px,12vw,160px) 0 clamp(96px,11vw,150px);background:#FFFBF7">
   <div style="position:absolute;left:0;right:0;top:-90px;height:180px;pointer-events:none">{{ cutSparkles }}</div>
   <div style="position:relative;max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(44px,5vw,72px)">
+    <div data-mx="shead" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(44px,5vw,72px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;align-items:center;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.26em;color:#74675E">
           <span style="color:#F37021">03</span><span data-reveal="line" style="width:48px;height:1px;background:#74675E"></span>SELECTED CASES
@@ -498,7 +498,7 @@ input,textarea,select,button{font-family:inherit}
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-start;gap:18px"><p data-reveal="text" style="margin:0;max-width:26em;font-size:16px;line-height:1.85;color:#74675E">고객의 상태를 확인한 뒤 상담한 관리 방향을 기록합니다. 사진을 선택하면 상세 기록을 볼 수 있습니다.</p><a href="cases.html" style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:0.2em;color:#34251E;padding:10px 0;border-bottom:1px solid #F37021" style-hover="color:#F37021">VIEW ALL CASES →</a></div>
     </div>
-    <div style="display:grid;grid-template-columns:{{ caseCols }};gap:clamp(36px,3vw,48px) clamp(16px,2vw,28px)">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:{{ caseCols }};gap:clamp(36px,3vw,48px) clamp(16px,2vw,28px)">
       <sc-for list="{{ cases }}" as="c" hint-placeholder-count="6">
         <button type="button" sc-camel-on-click="{{ c.onOpen }}" sc-camel-on-mouse-enter="{{ c.onEnter }}" sc-camel-on-mouse-leave="{{ c.onLeave }}" style="display:flex;flex-direction:column;gap:18px;padding:0;background:none;border:0;text-align:left;cursor:pointer;color:inherit">
           <div data-reveal="image" style="position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
@@ -588,7 +588,7 @@ input,textarea,select,button{font-family:inherit}
 <!-- 07 SPACE -->
 <section ref="{{ spaceRef }}" data-screen-label="07 Space" style="padding:clamp(72px,11vw,150px) 0;background:#FFFFFF">
   <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,5vw,80px)">
+    <div data-mx="shead" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,5vw,80px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;align-items:center;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.26em;color:#74675E">
           <span style="color:#F37021">06</span><span data-reveal="line" style="width:48px;height:1px;background:#74675E"></span>A PLACE TO RESET
@@ -597,7 +597,7 @@ input,textarea,select,button{font-family:inherit}
       </div>
       <p data-reveal="text" style="margin:0;max-width:24em;font-size:16px;line-height:1.85;color:#74675E">따뜻한 우드와 베이지 톤으로 채운 공간에서 편안하게 관리를 받으실 수 있습니다.</p>
     </div>
-    <div style="display:grid;grid-template-columns:{{ spaceCols }};gap:clamp(16px,2vw,28px);align-items:start">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:{{ spaceCols }};gap:clamp(16px,2vw,28px);align-items:start">
       <div data-reveal="image" style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
         <div style="position:absolute;inset:0;background:url(&quot;/assets/b/12a0c24cad.jpg&quot;) center/cover no-repeat, #EBE0D6;display:flex;align-items:flex-end;padding:24px">
           
@@ -629,7 +629,7 @@ input,textarea,select,button{font-family:inherit}
       <h2 data-reveal="text" style="margin:0;font-size:clamp(36px,4.4vw,64px);line-height:1;font-weight:700;letter-spacing:-0.03em;color:#34251E">REAL REVIEW</h2>
       <p data-reveal="text" style="margin:0;font-size:clamp(17px,1.4vw,20px);font-weight:600;color:#34251E">채온을 경험한 이야기</p>
     </div>
-    <div style="display:grid;grid-template-columns:{{ caseCols }};gap:20px">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:{{ caseCols }};gap:20px">
       <sc-for list="{{ reviews3 }}" as="r" hint-placeholder-count="3">
         <article data-reveal="image" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #ECE2D9;border-radius:2px;overflow:hidden">
           <div style="position:relative;aspect-ratio:4/5;background:url({{ r.img }}) center/cover no-repeat, {{ r.tone }};display:flex;align-items:flex-end;padding:18px">
@@ -649,7 +649,7 @@ input,textarea,select,button{font-family:inherit}
 </section>
 
 <!-- 09 FINAL CTA -->
-<section data-screen-label="09 Final CTA" style="position:relative;padding:clamp(80px,13vw,180px) 0;background:#FFFFFF;border-top:1px solid #ECE2D9;color:#34251E;overflow:hidden">
+<section data-mx="cta" data-screen-label="09 Final CTA" style="position:relative;padding:clamp(80px,13vw,180px) 0;background:#FFFFFF;border-top:1px solid #ECE2D9;color:#34251E;overflow:hidden">
   
   
   <div style="position:relative;max-width:900px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:36px">
@@ -675,9 +675,9 @@ input,textarea,select,button{font-family:inherit}
         <h2 data-reveal="text" style="margin:0;font-size:clamp(30px,3.4vw,50px);font-weight:700;letter-spacing:-0.03em;color:#34251E">예약 · 상담 · 위치</h2>
       </div>
       <div style="display:flex;flex-direction:column;border-top:1px solid #ECE2D9">
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">CALL</span><a href="tel:01031574789" style="font-size:20px;font-weight:700;letter-spacing:0.02em;color:#34251E">010-3157-4789</a></div>
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">LOCATION</span><a href="{{ googleMap }}" target="_blank" style="font-size:16px;line-height:1.7;color:#34251E">대구시 중구 명덕로55길 1 4층<br><span style="color:#F37021">구글 지도에서 위치 보기 →</span></a></div>
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">HOURS</span><span style="display:flex;flex-direction:column;gap:4px;font-size:17px;line-height:1.7;font-weight:500;color:#34251E"><span>평일 · 토요일 오전 10시 – 오후 8시</span><span>일요일 휴무</span><span style="font-size:15px;color:#74675E">공휴일 휴무는 따로 공지합니다.</span></span></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">CALL</span><a href="tel:01031574789" style="font-size:20px;font-weight:700;letter-spacing:0.02em;color:#34251E">010-3157-4789</a></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">LOCATION</span><a href="{{ googleMap }}" target="_blank" style="font-size:16px;line-height:1.7;color:#34251E">대구시 중구 명덕로55길 1 4층<br><span style="color:#F37021">구글 지도에서 위치 보기 →</span></a></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">HOURS</span><span style="display:flex;flex-direction:column;gap:4px;font-size:17px;line-height:1.7;font-weight:500;color:#34251E"><span>평일 · 토요일 오전 10시 – 오후 8시</span><span>일요일 휴무</span><span style="font-size:15px;color:#74675E">공휴일 휴무는 따로 공지합니다.</span></span></div>
       </div>
       <dc-import name="_dep Social" hint-size="100%,48px"></dc-import>
     </div>

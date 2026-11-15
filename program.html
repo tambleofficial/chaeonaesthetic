@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -301,7 +301,7 @@ a:hover{color:#F37021}
 <section data-screen-label="Care Map" style="padding:clamp(76px,12vw,160px) 0 clamp(80px,9vw,120px);background:#FFFFFF">
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(44px,5vw,64px)">
     <div style="display:flex;flex-direction:column;gap:20px"><span data-reveal="text" style="display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:0.2em;color:#F37021"><span style="width:28px;height:2px;background:#F37021"></span>CARE MAP</span><h2 data-reveal="text" style="margin:0;font-size:clamp(32px,4vw,56px);line-height:1.3;font-weight:600;letter-spacing:-0.035em;color:#34251E">채온의 케어, <span style="color:#F37021">한눈에 보기</span></h2></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));border-top:3px solid #F37021">
+    <div data-mx="caremap" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,240px),1fr));border-top:3px solid #F37021">
       <a href="#care-list" style="display:flex;flex-direction:column;gap:12px;padding:28px clamp(16px,2vw,28px) 32px;;color:#34251E;transition:background .4s" style-hover="background:#FAF6F2;color:#34251E">
         <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:600;color:#F37021">01</span><span style="font-size:13px;font-weight:600;color:#74675E">4 PROGRAM</span></div>
         <span style="font-size:clamp(22px,2vw,28px);font-weight:600;letter-spacing:0.02em;color:#34251E">BODY CARE</span>
@@ -331,7 +331,7 @@ a:hover{color:#F37021}
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px);display:flex;flex-direction:column;gap:clamp(44px,5vw,64px)">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px"><div style="display:flex;flex-direction:column;gap:20px"><span data-reveal="text" style="display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:0.2em;color:#F37021"><span style="width:28px;height:2px;background:#F37021"></span>CARE CATEGORY</span><h2 data-reveal="text" style="margin:0;font-size:clamp(32px,4vw,56px);line-height:1.3;font-weight:600;letter-spacing:-0.035em;color:#34251E">BODY · <span style="color:#F37021">FACE</span> 케어 메뉴</h2></div><span data-reveal="text" style="font-size:15px;font-weight:600;color:#74675E">카테고리별 4가지 케어</span></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,440px),1fr));gap:clamp(20px,2.4vw,32px);align-items:stretch">
-      <div style="display:grid;grid-template-rows:auto repeat(4,minmax(150px,1fr));background:#FFFFFF;border:1px solid #ECE2D9">
+      <div data-mx="plcat" style="display:grid;grid-template-rows:auto repeat(4,minmax(150px,1fr));background:#FFFFFF;border:1px solid #ECE2D9">
         <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:150px;padding:clamp(24px,3vw,36px);background:#F37021">
           <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:15px;font-weight:600;color:#FFFFFF">01</span><span style="font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:0.02em;color:#FFFFFF">BODY CARE</span></div>
           <span style="font-size:16px;line-height:1.6;font-weight:500;color:#FFFFFF">몸의 상태를 이해하고, 나에게 맞는 밸런스를 설계하다.</span>
@@ -369,7 +369,7 @@ a:hover{color:#F37021}
           </div>
         </div>
       </div>
-      <div style="display:grid;grid-template-rows:auto repeat(4,minmax(150px,1fr));background:#FFFFFF;border:1px solid #ECE2D9">
+      <div data-mx="plcat" style="display:grid;grid-template-rows:auto repeat(4,minmax(150px,1fr));background:#FFFFFF;border:1px solid #ECE2D9">
         <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:150px;padding:clamp(24px,3vw,36px);background:#F37021">
           <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:15px;font-weight:600;color:#FFFFFF">02</span><span style="font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:0.02em;color:#FFFFFF">FACE CARE</span></div>
           <span style="font-size:16px;line-height:1.6;font-weight:500;color:#FFFFFF">피부 컨디션부터 얼굴 윤곽과 탄력까지, 고민에 맞춘 섬세한 관리.</span>
@@ -423,7 +423,7 @@ a:hover{color:#F37021}
         <button type="button" sc-camel-on-click="{{ tb.pick }}" style="flex:none;white-space:nowrap;padding:14px 2px;margin-bottom:-1px;background:none;border:0;border-bottom:2px solid {{ tb.bd }};font-size:15px;font-weight:500;letter-spacing:0.06em;cursor:pointer;transition:color .3s,border-color .3s;color:{{ tb.fg }}">{{ tb.label }}</button>
       </sc-for>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,340px),1fr));gap:clamp(40px,4vw,56px) clamp(20px,2.4vw,32px)">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,340px),1fr));gap:clamp(40px,4vw,56px) clamp(20px,2.4vw,32px)">
       <sc-for list="{{ pkList }}" as="p" hint-placeholder-count="6">
         <article style="display:flex;flex-direction:column;gap:20px">
           <div style="aspect-ratio:4/3;border-radius:2px;background:url({{ p.img }}) center/cover no-repeat, #EDE3DA"></div>

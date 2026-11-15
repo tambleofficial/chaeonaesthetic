@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -308,14 +308,14 @@ a:hover{color:#F37021}
 
 <section data-screen-label="Review Grid" style="padding:clamp(80px,9vw,120px) 0 clamp(100px,11vw,150px);background:#FAF6F2">
   <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(44px,5vw,64px)">
+    <div data-mx="shead" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(44px,5vw,64px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;align-items:center;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.26em;color:#74675E"><span style="color:#F37021">REAL REVIEW</span><span data-reveal="line" style="width:48px;height:1px;background:#74675E"></span>CUSTOMER STORY</div>
         <h2 data-reveal="text" style="margin:0;font-size:clamp(30px,3.4vw,50px);font-weight:700;letter-spacing:-0.03em;color:#34251E">고객 후기</h2>
       </div>
       <a href="https://naver.me/F2LIbhsX" target="_blank" style="display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;border:1px solid #34251E;font-size:14px;font-weight:600;color:#34251E;border-radius:2px" style-hover="background:#34251E;color:#FFFBF7">네이버 플레이스 후기 보기 →</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,320px),1fr));gap:20px">
+    <div data-mx="grid2" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,320px),1fr));gap:20px">
       <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="6">
         <article data-reveal="image" style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #ECE2D9;border-radius:2px;overflow:hidden">
           <div style="position:relative;aspect-ratio:4/5;background:url({{ r.img }}) center/cover no-repeat, {{ r.tone }};display:flex;align-items:flex-end;padding:18px">

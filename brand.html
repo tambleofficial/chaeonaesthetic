@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -376,14 +376,14 @@ a:hover{color:#F37021}
 
 <section data-screen-label="Space" style="padding:clamp(72px,11vw,150px) 0;background:#FFFFFF">
   <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,5vw,80px)">
+    <div data-mx="shead" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(48px,5vw,80px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <div style="display:flex;align-items:center;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.26em;color:#74675E"><span style="color:#F37021">05</span><span data-reveal="line" style="width:48px;height:1px;background:#74675E"></span>A PLACE TO RESET</div>
         <h2 data-reveal="text" style="margin:0;font-size:clamp(30px,3.4vw,50px);font-weight:700;letter-spacing:-0.03em;color:#34251E">채온의 공간</h2>
       </div>
       <p data-reveal="text" style="margin:0;max-width:24em;font-size:16px;line-height:1.85;color:#74675E">따뜻하고 안정감 있는 프리미엄 공간에서 편안하게 관리를 받으실 수 있습니다.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,28px)">
+    <div data-mx="swipe" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,28px)">
       <sc-for list="{{ spaces }}" as="s" hint-placeholder-count="3">
         <div data-reveal="image" style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
           <div style="position:absolute;inset:0;background:url({{ s.img }}) center/cover no-repeat, {{ s.tone }};display:flex;align-items:flex-end;padding:24px"></div>
@@ -399,7 +399,7 @@ a:hover{color:#F37021}
       <span data-reveal="text" style="font-size:12px;font-weight:700;letter-spacing:0.3em;color:#F37021">06 · OUR NAME</span>
       <h2 data-reveal="text" style="margin:0;font-size:clamp(30px,3.4vw,50px);font-weight:700;letter-spacing:-0.03em;color:#34251E">채온에스테틱</h2>
     </div>
-    <div style="width:100%;max-width:960px;display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,300px),1fr));gap:20px">
+    <div data-mx="two" style="width:100%;max-width:960px;display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,300px),1fr));gap:20px">
       <div data-reveal="image" style="display:flex;flex-direction:column;align-items:center;gap:20px;padding:clamp(40px,5vw,64px) 24px;background:#FFFFFF;border:1px solid #ECE2D9;border-radius:2px">
         <span style="font-size:clamp(80px,9vw,128px);font-weight:700;line-height:1;color:#34251E">溫</span>
         <span style="width:32px;height:1px;background:#F37021"></span>

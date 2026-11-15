@@ -1,21 +1,87 @@
-/* 채온에스테틱 모바일 기준 손질 (768px 미만) */
+/* 채온에스테틱 모바일 전용 (768px 미만). PC 화면에는 적용되지 않습니다. */
 @media (max-width:767.98px){
-  /* 첫 화면: 로고·문구를 화면에 맞게 크게, 한자는 위·아래로 비켜서 */
-  [data-mx=hlogo]{width:min(230px,58vw)!important}
-  #top h1{font-size:clamp(36px,10.4vw,44px)!important}
-  [data-mx=han1]{left:-3vw!important;top:22%!important;font-size:46vw!important}
-  [data-mx=han2]{right:-3vw!important;top:80%!important;font-size:46vw!important}
-  [data-mx=hlabel]{flex-direction:column!important;align-items:center;gap:6px!important;font-size:15px!important}
-  /* 하위 페이지 첫 화면: 아래 빈 공간 없애기 */
+  /* ── 공통: 휴대폰 기준 여백·제목 ── */
+  section[data-screen-label]:not(#top):not([data-mx=subhero]){padding-top:56px!important;padding-bottom:56px!important}
+  section[data-screen-label]:not(#top):not([data-mx=subhero])>div{row-gap:26px!important}
+  section[data-screen-label] h2{font-size:clamp(24px,7vw,28px)!important;line-height:1.38!important;letter-spacing:-0.03em!important}
+  section[data-screen-label] p{font-size:15px!important;line-height:1.75!important}
+  [data-mx=shead]{margin-bottom:24px!important;gap:14px!important}
+
+  /* 옆으로 넘기는 카드 묶음 (다음 카드가 살짝 보여서 넘길 수 있다는 걸 알 수 있게) */
+  [data-mx=swipe]{display:flex!important;flex-wrap:nowrap!important;gap:12px!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-left:-20px!important;margin-right:-20px!important;padding:0 20px 4px!important;scroll-padding-left:20px}
+  [data-mx=swipe]::-webkit-scrollbar{display:none}
+  [data-mx=swipe]>*{flex:0 0 74%!important;width:74%!important;min-width:0!important;margin:0!important;scroll-snap-align:start;transform:none!important}
+  [data-mx=swipe] span,[data-mx=swipe] p{font-size:14px;line-height:1.65}
+
+  /* 2열 격자 (사례·후기) */
+  [data-mx=grid2]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px 12px!important}
+  [data-mx=grid2]>*{gap:10px!important}
+  [data-mx=grid2]>*>div:last-child{padding:12px 12px 14px!important;gap:8px!important}
+  [data-mx=grid2] span,[data-mx=grid2] p{font-size:13px!important;line-height:1.6!important;letter-spacing:0.02em!important}
+  [data-mx=grid2] div>span:only-child,[data-mx=grid2] div[style*="justify-content"]>span{white-space:nowrap}
+  [data-mx=grid2]>*>div:last-child>div>span{font-size:11px!important;white-space:nowrap}
+
+  /* ── 홈 첫 화면 ── */
+  [data-mx=hlogo]{width:min(150px,38vw)!important}
+  #top h1{font-size:clamp(30px,8.6vw,36px)!important}
+  [data-mx=han1]{left:-2vw!important;top:30%!important;font-size:38vw!important}
+  [data-mx=han2]{right:-2vw!important;top:76%!important;font-size:38vw!important}
+  [data-mx=hlabel]{flex-direction:column!important;align-items:center;gap:4px!important;font-size:14px!important}
+
+  /* 하위 페이지 첫 화면: 짧고 단단하게 */
   [data-mx=subhero]{min-height:0!important}
-  [data-mx=subhero]>div{padding-top:112px!important;padding-bottom:56px!important}
-  /* 5단계: 아이콘 + 이름 + 번호 한 줄 목록 */
-  [data-mx=step]{flex:1 1 100%!important;min-height:0!important;flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;text-align:left!important;padding:18px 20px!important;gap:16px!important}
-  [data-mx=step] svg{flex:none;width:30px;height:30px}
-  [data-mx=step]>span{margin-top:0!important}
-  [data-mx=step]>span:last-child{margin-left:auto;white-space:nowrap}
-  /* 핵심가치 카드 여백 */
-  [data-mx=core]{padding:26px 22px!important;gap:10px!important}
-  /* 프로그램 목록: 작은 사진(96px) → 사진 위, 설명 아래 1열 (사진 틀 비율 그대로) */
-  [data-mx=plrow]{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+  [data-mx=subhero]>div{padding-top:100px!important;padding-bottom:40px!important;gap:16px!important}
+  [data-mx=subhero] h1{font-size:clamp(30px,8.6vw,36px)!important}
+  [data-mx=subhero]>div>div:nth-child(2)>span:first-child{font-size:52px!important}
+  [data-mx=subhero]>span[aria-hidden]{font-size:62vw!important}
+
+  /* 신뢰 문구 4개: 2x2 작게 */
+  [data-mx=trust]>*{padding:14px 4px!important;font-size:11px!important;letter-spacing:0.12em!important}
+  /* AI 분석·상담·케어 3가지: 번호 붙은 짧은 목록 */
+  [data-mx=feat3]>*{display:grid!important;grid-template-columns:30px minmax(0,1fr);column-gap:8px;row-gap:2px!important;padding:14px 0!important;border-left:0!important;border-top:1px solid #ECE2D9}
+  [data-mx=feat3]>*:first-child{border-top:0}
+  [data-mx=feat3]>*>span:first-child{grid-row:1 / span 2;color:#F37021!important;padding-top:2px}
+  [data-mx=feat3]>*>span:nth-child(3){font-size:14px!important}
+  /* 溫·穩 상자: 낮게 */
+  [data-mx=hanbox]>*{aspect-ratio:auto!important;padding:18px 16px!important;gap:16px!important}
+  [data-mx=hanbox]>*>span:first-child{font-size:60px!important}
+  /* 핵심가치: 번호 + 내용 한 줄 카드 */
+  [data-mx=core]{display:grid!important;grid-template-columns:40px minmax(0,1fr);column-gap:10px;row-gap:6px!important;padding:18px 16px!important}
+  [data-mx=core]>span:first-child{grid-row:1 / span 4;font-size:28px!important}
+  [data-mx=core]>span{margin-top:0!important}
+  [data-mx=core]>span:last-child{font-size:14px!important;line-height:1.7!important}
+  /* 5단계 */
+  [data-mx=step]{flex:1 1 100%!important;min-height:0!important;flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;text-align:left!important;padding:13px 16px!important;gap:14px!important}
+  [data-mx=step] svg{flex:none;width:26px;height:26px}
+  [data-mx=step]>span{margin-top:0!important;font-size:15px!important}
+  [data-mx=step]>span:last-child{margin-left:auto;white-space:nowrap;font-size:11px!important}
+  /* 마지막 안내(CTA): 로고 작게, 버튼 한 줄 */
+  [data-mx=cta]>div{gap:20px!important}
+  [data-mx=cta]>div>div:first-child{width:96px!important}
+  [data-mx=cta] a{min-width:0!important;flex:1 1 0!important;height:52px!important;padding:0 12px!important;font-size:15px!important}
+  [data-mx=cta]>div>div:last-child{width:100%;flex-wrap:nowrap!important}
+  /* 연락처 줄: 이름 칸 좁게 */
+  [data-mx=kv]{grid-template-columns:72px minmax(0,1fr)!important;gap:10px!important;padding:14px 0!important}
+  [data-mx=kv]>*:last-child{font-size:15px!important}
+
+  /* ── 브랜드: 溫·穩 이름 카드 2열 ── */
+  [data-mx=two]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  [data-mx=two]>*{padding:22px 10px!important;gap:10px!important}
+
+  /* ── 프로그램 ── */
+  [data-mx=caremap]>*{padding:18px 0!important}
+  [data-mx=plcat]{grid-template-rows:none!important}
+  [data-mx=plcat]>div:first-child{min-height:0!important;padding:20px!important}
+  [data-mx=plrow]{grid-template-columns:96px minmax(0,1fr)!important;gap:14px!important;padding:16px!important}
+  [data-mx=plrow] p{font-size:13.5px!important;line-height:1.65!important}
+
+  /* ── 문의: 채널 2열 ── */
+  [data-mx=chan]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [data-mx=chan]>*{padding:18px 14px!important;gap:8px!important}
+  [data-mx=chan] p,[data-mx=chan] span{font-size:13px!important;line-height:1.55!important}
+
+  /* ── 푸터: 2열 ── */
+  [data-mx=ftgrid]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:26px 16px!important}
+  [data-mx=ftgrid]>*:nth-child(n+3){grid-column:1 / -1}
+  a[href^="tel:"]{white-space:nowrap}
 }

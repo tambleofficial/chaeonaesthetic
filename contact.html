@@ -17,7 +17,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/assets/chaeon-m.css?v=1">
+<link rel="stylesheet" href="/assets/chaeon-m.css?v=2">
 <script src="/assets/sj-cms.js?v=c2"></script>
 <script src="/assets/b/2e38395c4a.js"></script>
 </head>
@@ -301,7 +301,7 @@ a:hover{color:#F37021}
 <section data-screen-label="Channels" style="padding:clamp(80px,13vw,170px) 0 clamp(80px,9vw,120px);background:#FFFFFF">
   <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)">
     <div style="display:flex;align-items:center;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.26em;color:#74675E;margin-bottom:clamp(40px,5vw,64px)"><span style="color:#F37021">01</span><span data-reveal="line" style="width:48px;height:1px;background:#74675E"></span>RESERVATION</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,280px),1fr));border-top:1px solid #ECE2D9;border-left:1px solid #ECE2D9">
+    <div data-mx="chan" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%,280px),1fr));border-top:1px solid #ECE2D9;border-left:1px solid #ECE2D9">
       <sc-for list="{{ channels }}" as="c" hint-placeholder-count="4">
         <a href="{{ c.href }}" target="{{ c.target }}" style="display:flex;flex-direction:column;gap:22px;min-height:280px;padding:clamp(28px,3vw,40px);border-right:1px solid #ECE2D9;border-bottom:1px solid #ECE2D9;color:#34251E;transition:background .4s" style-hover="background:#FAF6F2;color:#34251E">
           <img src="{{ c.icon }}" alt="" width="52" height="52" style="display:block;width:52px;height:52px;border-radius:12px;flex:none">
@@ -325,10 +325,10 @@ a:hover{color:#F37021}
         <h2 data-reveal="text" style="margin:0;font-size:clamp(30px,3.4vw,50px);font-weight:700;letter-spacing:-0.03em;color:#34251E">오시는 길</h2>
       </div>
       <div style="display:flex;flex-direction:column;border-top:1px solid #ECE2D9">
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">ADDRESS</span><span style="font-size:17px;line-height:1.7;font-weight:500;color:#34251E">대구시 중구 명덕로55길 1 4층</span></div>
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">HOURS</span><span style="display:flex;flex-direction:column;gap:4px;font-size:17px;line-height:1.7;font-weight:500;color:#34251E"><span>평일 · 토요일 오전 10시 – 오후 8시</span><span>일요일 휴무</span><span style="font-size:15px;color:#74675E">공휴일 휴무는 따로 공지합니다.</span></span></div>
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">CALL</span><a href="tel:01031574789" style="font-size:20px;font-weight:700;color:#34251E">010-3157-4789</a></div>
-        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">MAP</span><a href="{{ googleMap }}" target="_blank" style="font-size:16px;color:#34251E">구글 지도에서 보기 →</a></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">ADDRESS</span><span style="font-size:17px;line-height:1.7;font-weight:500;color:#34251E">대구시 중구 명덕로55길 1 4층</span></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">HOURS</span><span style="display:flex;flex-direction:column;gap:4px;font-size:17px;line-height:1.7;font-weight:500;color:#34251E"><span>평일 · 토요일 오전 10시 – 오후 8시</span><span>일요일 휴무</span><span style="font-size:15px;color:#74675E">공휴일 휴무는 따로 공지합니다.</span></span></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">CALL</span><a href="tel:01031574789" style="font-size:20px;font-weight:700;color:#34251E">010-3157-4789</a></div>
+        <div data-mx="kv" style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9"><span style="font-size:11px;font-weight:700;letter-spacing:0.24em;color:#74675E;padding-top:5px">MAP</span><a href="{{ googleMap }}" target="_blank" style="font-size:16px;color:#34251E">구글 지도에서 보기 →</a></div>
       </div>
     </div>
     <div style="flex:1.4 1 460px;min-width:0">
