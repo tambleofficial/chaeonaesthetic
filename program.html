@@ -426,7 +426,7 @@ a:hover{color:#F37021}
     <div data-mx="swipe" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%,340px),1fr));gap:clamp(40px,4vw,56px) clamp(20px,2.4vw,32px)">
       <sc-for list="{{ pkList }}" as="p" hint-placeholder-count="6">
         <article style="display:flex;flex-direction:column;gap:20px">
-          <div style="aspect-ratio:4/3;border-radius:2px;background:url({{ p.img }}) center/cover no-repeat, #EDE3DA"></div>
+          <div style="aspect-ratio:4/5;border-radius:2px;background:url({{ p.img }}) center top/cover no-repeat, #EDE3DA"></div>
           <div style="display:flex;flex-direction:column;gap:8px">
             <span style="font-size:12px;font-weight:600;letter-spacing:0.2em;color:#F37021">{{ p.cat }}</span>
             <span style="font-size:clamp(20px,1.7vw,23px);font-weight:500;color:#34251E">{{ p.name }}</span>
