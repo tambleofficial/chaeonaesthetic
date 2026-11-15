@@ -599,20 +599,20 @@ input,textarea,select,button{font-family:inherit}
     </div>
     <div data-mx="swipe" style="display:grid;grid-template-columns:{{ spaceCols }};gap:clamp(16px,2vw,28px);align-items:start">
       <div data-reveal="image" style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
-        <div style="position:absolute;inset:0;background:url(&quot;/assets/photos/space1-tall.jpg&quot;) center/cover no-repeat, #EBE0D6;display:flex;align-items:flex-end;padding:24px">
+        <div style="position:absolute;inset:0;background:url(&quot;/assets/b/12a0c24cad.jpg&quot;) center/cover no-repeat, #EBE0D6;display:flex;align-items:flex-end;padding:24px">
           
         </div>
       </div>
       <div ref="{{ space2 }}" style="will-change:transform">
         <div data-reveal="image" style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
-          <div style="position:absolute;inset:0;background:url(&quot;/assets/photos/space2-tall.jpg&quot;) center/cover no-repeat, #F1E8DF;display:flex;align-items:flex-end;padding:24px">
+          <div style="position:absolute;inset:0;background:url(&quot;/assets/b/0fa8b4b8c1.jpg&quot;) center/cover no-repeat, #F1E8DF;display:flex;align-items:flex-end;padding:24px">
             
           </div>
         </div>
       </div>
       <div ref="{{ space3 }}" style="will-change:transform">
         <div data-reveal="image" style="position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px">
-          <div style="position:absolute;inset:0;background:url(&quot;/assets/photos/space3-tall.jpg&quot;) center/cover no-repeat, #EDE3DA;display:flex;align-items:flex-end;padding:24px">
+          <div style="position:absolute;inset:0;background:url(&quot;/assets/b/34130fbcf5.jpg&quot;) center/cover no-repeat, #EDE3DA;display:flex;align-items:flex-end;padding:24px">
             
           </div>
         </div>
@@ -1075,7 +1075,7 @@ class Component extends DCLogic {
       trackW: mob ? '1px' : 'calc(80% + 0px)', trackH: mob ? 'calc(100% - 52px)' : '1px', trackOrigin: mob ? 'top' : 'left',
       spaceCols: tab ? 'repeat(3, minmax(0,1fr))' : 'minmax(0,1fr)',
       reviewCols: wide ? 'minmax(0,4fr) minmax(0,8fr)' : 'minmax(0,1fr)',
-      reviews3: REVIEWS.slice(0, 3).map((r, i) => ({ ...r, tone: '#FAF6F2', img: 'assets/photos/' + ['rv-back.jpg', 'rv-body.jpg', 'rv-face-full.jpg'][i], imgB: 'assets/photos/blur/' + ['rv-back', 'rv-body', 'rv-face'][i] + '.jpg', program: ['BODY CARE', 'BODY CARE', 'FACE CARE'][i] })),
+      reviews3: REVIEWS.slice(0, 3).map((r, i) => ({ ...r, tone: '#FAF6F2', img: 'assets/photos/' + ['rv-back.jpg', 'rv-body.jpg', 'rv-face.jpg'][i], imgB: 'assets/photos/blur/' + ['rv-back', 'rv-body', 'rv-face'][i] + '.jpg', program: ['BODY CARE', 'BODY CARE', 'FACE CARE'][i] })),
       googleMap: ((typeof window !== 'undefined' && window.CHAEON) || {}).googleMap || 'https://www.google.com/maps/search/?api=1&query=%EB%8C%80%EA%B5%AC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%EB%AA%85%EB%8D%95%EB%A1%9C55%EA%B8%B8%201',
       reviews: REVIEWS.map((r, i) => ({ ...r, tone: ['#F1E9E1', '#EDE3DA', '#E9DED3'][i % 3], o: i === idx || i === idx + 1 ? 1 : 0.4 })),
       cardW: `calc((100% - 20px) / ${pv})`,
