@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:fixed;top:0;left:0;right:0;z-index:50;transition:background .5s ease, border-color .5s ease;background:{{ headerBg }};border-bottom:1px solid {{ headerBorder }};backdrop-filter:{{ headerBlur }};-webkit-backdrop-filter:{{ headerBlur }}">
+  <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px);height:{{ headerH }};display:flex;align-items:center;justify-content:space-between;gap:24px;transition:height .5s ease">
+    <a href="index.html" onClick="{{ navHome }}" style="display:flex;align-items:center;gap:12px">
+      <span style="display:block;width:44px;height:41px;background:url(assets/chaeon-mono-orange.png) center/contain no-repeat"></span>
+      <span style="display:flex;flex-direction:column;gap:3px">
+        <span style="font-size:14px;font-weight:600;letter-spacing:0.26em;color:#34251E">CHAEON</span>
+        <span style="font-size:10px;font-weight:600;letter-spacing:0.3em;color:#F37021">AESTHETIC</span>
+      </span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:clamp(20px,3vw,44px)">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" onClick="{{ n.onClick }}" style="position:relative;display:flex;align-items:baseline;gap:7px;font-size:12px;font-weight:600;letter-spacing:0.16em;color:#34251E;padding:8px 0" style-hover="color:#F37021">
+            <span style="font-size:10px;color:#F37021;letter-spacing:0.08em">{{ n.no }}</span>
+            <span>{{ n.label }}</span>
+            <span style="position:absolute;left:0;right:0;bottom:0;height:1px;background:#F37021;transform-origin:left;transition:transform .5s;transform:{{ n.lineT }}"></span>
+          </a>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="{{ bookingHref }}" target="{{ bookingTarget }}" onClick="{{ bookingClick }}" style="flex:none;white-space:nowrap;display:flex;align-items:center;height:42px;padding:0 20px;background:#F37021;color:#FFFFFF;font-size:14px;font-weight:600;letter-spacing:0.04em;border-radius:2px;transition:background .3s" style-hover="background:#34251E;color:#FFFFFF">예약하기</a>
+      <sc-if value="{{ notDesktop }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="메뉴" style="width:44px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:transparent;border:1px solid #34251E;border-radius:2px;cursor:pointer">
+          <span style="display:block;width:18px;height:2px;border-radius:1px;background:#34251E;transition:transform .4s;transform:{{ bar1 }}"></span>
+          <span style="display:block;width:18px;height:2px;border-radius:1px;background:#34251E;transition:transform .4s;transform:{{ bar2 }}"></span>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:48;background:#FFFBF7;display:flex;flex-direction:column;justify-content:space-between;padding:110px 24px 120px">
+    <nav style="display:flex;flex-direction:column;border-top:1px solid #ECE2D9">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+        <a href="{{ n.href }}" onClick="{{ n.onClick }}" style="display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px solid #ECE2D9;color:#34251E">
+          <span style="font-size:12px;font-weight:700;color:#F37021;letter-spacing:0.1em">{{ n.no }}</span>
+          <span style="font-size:26px;font-weight:700;letter-spacing:0.04em">{{ n.label }}</span>
+          <span style="margin-left:auto;font-size:15px;color:#74675E">{{ n.ko }}</span>
+        </a>
+      </sc-for>
+    </nav>
+    <a href="tel:01031574789" style="font-size:20px;font-weight:700;color:#34251E">010-3157-4789</a>
+  </div>
+</sc-if>
+
+<sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+  <div style="position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:10px;transition:opacity .5s;opacity:{{ quickO }};pointer-events:{{ quickPE }}">
+    <sc-for list="{{ quick }}" as="q" hint-placeholder-count="4">
+      <a href="{{ q.href }}" target="{{ q.target }}" onClick="{{ q.onClick }}" onMouseEnter="{{ q.onEnter }}" onMouseLeave="{{ q.onLeave }}" aria-label="{{ q.label }}" style="position:relative;display:flex;align-items:center;justify-content:flex-end">
+        <span style="position:absolute;right:56px;white-space:nowrap;padding:7px 12px;background:#FFFBF7;border:1px solid #ECE2D9;font-size:13px;font-weight:600;color:#34251E;border-radius:2px;pointer-events:none;transition:opacity .35s, transform .35s;opacity:{{ q.labelO }};transform:{{ q.labelT }}">{{ q.label }}</span>
+        <span style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .3s,color .3s,border-color .3s;border:1px solid {{ q.border }};background:{{ q.bg }};color:{{ q.color }}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ q.d }}"></path></svg>
+        </span>
+      </a>
+    </sc-for>
+  </div>
+</sc-if>
+
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;left:0;right:0;bottom:0;z-index:49;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#FFFBF7;border-top:1px solid #ECE2D9">
+    <a href="{{ bookingHref }}" target="{{ bookingTarget }}" onClick="{{ bookingClick }}" style="height:50px;display:flex;align-items:center;justify-content:center;background:#F37021;color:#FFFFFF;font-size:15px;font-weight:600;border-radius:2px">예약</a>
+    <a href="{{ talkHref }}" target="{{ talkTarget }}" onClick="{{ talkClick }}" style="height:50px;display:flex;align-items:center;justify-content:center;border:1px solid #34251E;color:#34251E;font-size:15px;font-weight:600;border-radius:2px">상담</a>
+  </div>
+</sc-if>
+
+<div ref="{{ curtainRef }}" style="position:fixed;inset:0;z-index:90;background:#FFFBF7;opacity:0;pointer-events:none;overflow:hidden">
+  <span ref="{{ lineRef }}" style="position:absolute;left:0;top:50%;width:100%;height:1px;background:linear-gradient(90deg, rgba(243,112,33,0) 0%, #F37021 50%, rgba(243,112,33,0) 100%);box-shadow:0 0 12px rgba(245,138,66,0.6);transform:translateX(-100%)"></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;brand&quot;,&quot;program&quot;,&quot;cases&quot;,&quot;review&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;solid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;quickAfter&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:0.9,&quot;tsType&quot;:&quot;number&quot;}}">
+const PAGES = [
+  ['01', 'BRAND', '브랜드', 'brand', 'brand.html'],
+  ['02', 'PROGRAM', '프로그램', 'program', 'program.html'],
+  ['03', 'CASES', '관리 사례', 'cases', 'cases.html'],
+  ['04', 'REVIEW', '고객 후기', 'review', 'review.html'],
+  ['05', 'CONTACT', '예약 · 상담', 'contact', 'contact.html']
+];
+const ICON = {
+  calendar: 'M4.5 6h15v13.5h-15zM4.5 10h15M8.5 3.5v4M15.5 3.5v4',
+  chat: 'M4 5.5h16v10.5H10l-4.5 3.5V16H4z',
+  phone: 'M7 3.5h2.8l1.4 3.8-1.9 1.3a10.5 10.5 0 0 0 6.1 6.1l1.3-1.9 3.8 1.4V17a2.5 2.5 0 0 1-2.5 2.5A15 15 0 0 1 4.5 6 2.5 2.5 0 0 1 7 3.5z',
+  pin: 'M12 20.5s-6-5.6-6-10.5a6 6 0 0 1 12 0c0 4.9-6 10.5-6 10.5zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'
+};
+const CONTACT = 'contact.html';
+
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1440, scrolled: false, quick: false, menu: false, qh: -1 };
+  curtainRef = React.createRef(); lineRef = React.createRef();
+
+  componentDidMount() {
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onScroll = () => {
+      const s = window.scrollY > 40, q = window.scrollY > window.innerHeight * (this.props.quickAfter ?? 0.9);
+      if (s !== this.state.scrolled || q !== this.state.quick) this.setState({ scrolled: s, quick: q });
+      this.revealCheck();
+    };
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.scanTimer = setInterval(() => this.revealCheck(), 350);
+    setTimeout(() => clearInterval(this.scanTimer), 5000);
+    const c = this.curtainRef.current, l = this.lineRef.current;
+    let entering = false;
+    try { entering = sessionStorage.getItem('chaeon-enter') === '1'; sessionStorage.removeItem('chaeon-enter'); } catch (e) {}
+    if (entering && c) {
+      c.style.transition = 'none'; c.style.opacity = '1';
+      l.style.transition = 'none'; l.style.transform = 'translateX(0)';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        l.style.transition = 'transform .6s cubic-bezier(.6,0,.3,1)'; l.style.transform = 'translateX(100%)';
+        c.style.transition = 'opacity .5s ease .2s'; c.style.opacity = '0';
+      }));
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onScroll);
+    clearInterval(this.scanTimer);
+  }
+  revealCheck() {
+    const ez = 'cubic-bezier(.2,.7,.2,1)', vh = window.innerHeight;
+    document.querySelectorAll('[data-reveal]:not([data-rv])').forEach(el => {
+      el.setAttribute('data-rv', 'wait');
+      const t = el.getAttribute('data-reveal');
+      if (t === 'text') { el.style.clipPath = 'inset(0 0 100% 0)'; el.style.transform = 'translateY(18px)'; el.style.transition = `clip-path 1s ${ez}, transform 1s ${ez}`; }
+      if (t === 'image') { el.style.clipPath = 'inset(100% 0 0 0)'; el.style.transition = `clip-path 1.3s ${ez}`; }
+      if (t === 'line') { const y = el.getAttribute('data-axis') === 'y'; el.style.transform = y ? 'scaleY(0)' : 'scaleX(0)'; el.style.transformOrigin = y ? 'top' : 'left'; el.style.transition = `transform 1.2s ${ez}, width .8s ${ez}`; }
+      if (t === 'svg') { el.style.transition = 'stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1)'; }
+    });
+    document.querySelectorAll('[data-rv="wait"]').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (!(r.top < vh * 0.92 && r.bottom > -vh * 0.5)) return;
+      el.setAttribute('data-rv', 'done');
+      const sib = el.parentElement ? Array.from(el.parentElement.children).indexOf(el) : 0;
+      const delay = Math.min(sib, 4) * 90 + (+el.getAttribute('data-delay') || 0);
+      requestAnimationFrame(() => {
+        el.style.transitionDelay = delay + 'ms';
+        const t = el.getAttribute('data-reveal');
+        if (t === 'svg') { el.style.strokeDashoffset = '0'; return; }
+        el.style.clipPath = 'inset(0 0 0 0)';
+        el.style.transform = t === 'text' ? 'translateY(0)' : 'none';
+        if (t === 'line') setTimeout(() => { el.style.transitionDelay = '0ms'; }, 1300 + delay);
+      });
+    });
+  }
+  navigate(href) {
+    const c = this.curtainRef.current, l = this.lineRef.current;
+    try { sessionStorage.setItem('chaeon-enter', '1'); } catch (e) {}
+    this.setState({ menu: false });
+    if (!c) { location.href = href; return; }
+    c.style.transition = 'opacity .28s ease'; c.style.opacity = '1';
+    l.style.transition = 'none'; l.style.transform = 'translateX(-100%)';
+    requestAnimationFrame(() => { l.style.transition = 'transform .45s cubic-bezier(.6,0,.3,1)'; l.style.transform = 'translateX(0)'; });
+    setTimeout(() => { location.href = href; }, 480);
+  }
+  link = href => e => { if (e) e.preventDefault(); this.navigate(href); };
+
+  renderVals() {
+    const { w, scrolled, quick, menu, qh } = this.state;
+    const cfg = (typeof window !== 'undefined' && window.CHAEON) || {};
+    const desk = w >= 1024, mob = w < 768, active = this.props.active || '';
+    const book = (cfg.naverBookingUrl || '').trim(), kakao = (cfg.kakaoUrl || '').trim();
+    const solid = scrolled || menu || this.props.solid;
+    const quickItems = [
+      { label: '예약', d: ICON.calendar, href: book || CONTACT, target: book ? '_blank' : '_self', onClick: book ? undefined : this.link(CONTACT) },
+      { label: '상담', d: ICON.chat, href: kakao || CONTACT, target: kakao ? '_blank' : '_self', onClick: kakao ? undefined : this.link(CONTACT) },
+      { label: '전화', d: ICON.phone, href: 'tel:01031574789', target: '_self' },
+      { label: '위치', d: ICON.pin, href: cfg.googleMap || 'https://www.google.com/maps/search/?api=1&query=%EC%B1%84%EC%98%A8%EC%97%90%EC%8A%A4%ED%85%8C%ED%8B%B1', target: '_blank' }
+    ];
+    return {
+      curtainRef: this.curtainRef, lineRef: this.lineRef,
+      isDesktop: desk, notDesktop: !desk, isMobile: mob, menuOpen: menu && !desk,
+      headerBg: solid ? 'rgba(255,251,247,0.88)' : 'rgba(255,251,247,0)',
+      headerBorder: solid ? 'rgba(83,42,23,0.12)' : 'rgba(83,42,23,0)',
+      headerBlur: solid ? 'blur(10px)' : 'none',
+      headerH: scrolled ? '68px' : (desk ? '88px' : '64px'),
+      navHome: this.link('index.html'),
+      nav: PAGES.map(([no, label, ko, key, href]) => ({ no, label, ko, href, onClick: this.link(href), lineT: key === active ? 'scaleX(1)' : 'scaleX(0)' })),
+      bookingHref: book || CONTACT, bookingTarget: book ? '_blank' : '_self', bookingClick: book ? undefined : this.link(CONTACT),
+      talkHref: kakao || CONTACT, talkTarget: kakao ? '_blank' : '_self', talkClick: kakao ? undefined : this.link(CONTACT),
+      toggleMenu: () => this.setState({ menu: !menu }),
+      bar1: menu ? 'translateY(4px) rotate(45deg)' : 'none', bar2: menu ? 'translateY(-4px) rotate(-45deg)' : 'none',
+      quickO: 1, quickPE: 'auto',
+      quick: quickItems.map((q, i) => { const a = qh === i;
+        return { ...q, onEnter: () => this.setState({ qh: i }), onLeave: () => this.setState({ qh: -1 }),
+          labelO: a ? 1 : 0, labelT: a ? 'translateX(0)' : 'translateX(8px)',
+          border: a ? '#F37021' : '#34251E', bg: a ? '#F37021' : '#FFFBF7', color: a ? '#FFFFFF' : '#34251E' }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

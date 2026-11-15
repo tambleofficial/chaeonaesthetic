@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;flex-wrap:nowrap;gap:10px">
+  <a href="{{ insta }}" target="_blank" aria-label="Instagram" title="Instagram" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><defs><linearGradient id="chIg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"></stop><stop offset="0.3" stop-color="#FA7E1E"></stop><stop offset="0.6" stop-color="#D62976"></stop><stop offset="1" stop-color="#4F5BD5"></stop></linearGradient></defs><rect width="48" height="48" fill="url(#chIg)"></rect><rect x="12" y="12" width="24" height="24" rx="7" fill="none" stroke="#FFFFFF" stroke-width="2.4"></rect><circle cx="24" cy="24" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2.4"></circle><circle cx="31" cy="17" r="1.6" fill="#FFFFFF"></circle></svg>
+  </a>
+  <a href="{{ place }}" target="_blank" aria-label="네이버 플레이스" title="네이버 플레이스" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><rect width="48" height="48" fill="#03C75A"></rect><path d="M15 14h6.4l5.8 8.6V14H33v20h-6.4l-5.8-8.6V34H15z" fill="#FFFFFF"></path></svg>
+  </a>
+  <a href="{{ booking }}" target="{{ bookingTarget }}" aria-label="네이버 예약" title="네이버 예약" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><rect width="48" height="48" fill="#03C75A"></rect><rect x="13" y="15" width="22" height="19" rx="2.5" fill="none" stroke="#FFFFFF" stroke-width="2.2"></rect><path d="M13 21h22M19 12v6M29 12v6" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path><path d="M19.5 27.5l3 3 6-6" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </a>
+  <a href="{{ kakao }}" target="{{ kakaoTarget }}" aria-label="카카오톡 상담" title="카카오톡 상담" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><rect width="48" height="48" fill="#FEE500"></rect><path d="M24 12c-7.2 0-13 4.5-13 10.1 0 3.6 2.4 6.7 6 8.5l-1.3 4.9c-.1.4.4.8.8.5l5.7-3.8c.6.1 1.2.1 1.8.1 7.2 0 13-4.5 13-10.1S31.2 12 24 12z" fill="#3C1E1E"></path></svg>
+  </a>
+  <a href="{{ map }}" target="_blank" aria-label="구글 지도" title="구글 지도" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;border:1px solid #E3D6C3;background:#FFFFFF;transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><path d="M24 10c-5.5 0-10 4.3-10 9.7C14 27 24 38 24 38s10-11 10-18.3C34 14.3 29.5 10 24 10z" fill="#EA4335"></path><path d="M24 10c-5.5 0-10 4.3-10 9.7 0 1.6.5 3.3 1.3 5L24 16.5z" fill="#4285F4" opacity="0.9"></path><path d="M15.3 24.7C17.8 30.4 24 38 24 38l4-5.2-7.2-9.4z" fill="#34A853" opacity="0.9"></path><circle cx="24" cy="20" r="3.6" fill="#FFFFFF"></circle></svg>
+  </a>
+  <a href="tel:01031574789" aria-label="전화" title="전화 010-3157-4789" style="display:block;width:{{ size }};height:{{ size }};border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(238,221,196,0.35);transition:transform .3s" style-hover="transform:translateY(-3px)">
+    <svg viewBox="0 0 48 48" width="100%" height="100%"><rect width="48" height="48" fill="#34251E"></rect><path d="M18.6 13h3.6l1.8 4.9-2.4 1.7a13.5 13.5 0 0 0 6.8 6.8l1.7-2.4 4.9 1.8v3.6a2.8 2.8 0 0 1-2.8 2.8A18.3 18.3 0 0 1 15.8 15.8 2.8 2.8 0 0 1 18.6 13z" fill="#FFFBF7"></path></svg>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:80},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:48,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:32,&quot;max&quot;:72}}">
+class Component extends DCLogic {
+  renderVals() {
+    const c = (typeof window !== 'undefined' && window.CHAEON) || {};
+    const book = (c.naverBookingUrl || '').trim(), kakao = (c.kakaoUrl || '').trim();
+    const contact = 'contact.html';
+    return {
+      size: (this.props.size ?? 48) + 'px',
+      insta: c.instagram || 'https://www.instagram.com/chaeon.esthetic/',
+      place: c.naverPlace || 'https://naver.me/F2LIbhsX',
+      map: c.googleMap || 'https://www.google.com/maps/search/?api=1&query=%EC%B1%84%EC%98%A8%EC%97%90%EC%8A%A4%ED%85%8C%ED%8B%B1',
+      booking: book || contact, bookingTarget: book ? '_blank' : '_self',
+      kakao: kakao || contact, kakaoTarget: kakao ? '_blank' : '_self'
+    };
+  }
+}
+</script>
+</body>
+</html>

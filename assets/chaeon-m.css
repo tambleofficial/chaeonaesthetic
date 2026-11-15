@@ -1,0 +1,21 @@
+/* 채온에스테틱 모바일 기준 손질 (768px 미만) */
+@media (max-width:767.98px){
+  /* 첫 화면: 로고·문구를 화면에 맞게 크게, 한자는 위·아래로 비켜서 */
+  [data-mx=hlogo]{width:min(230px,58vw)!important}
+  #top h1{font-size:clamp(36px,10.4vw,44px)!important}
+  [data-mx=han1]{left:-3vw!important;top:22%!important;font-size:46vw!important}
+  [data-mx=han2]{right:-3vw!important;top:80%!important;font-size:46vw!important}
+  [data-mx=hlabel]{flex-direction:column!important;align-items:center;gap:6px!important;font-size:15px!important}
+  /* 하위 페이지 첫 화면: 아래 빈 공간 없애기 */
+  [data-mx=subhero]{min-height:0!important}
+  [data-mx=subhero]>div{padding-top:112px!important;padding-bottom:56px!important}
+  /* 5단계: 아이콘 + 이름 + 번호 한 줄 목록 */
+  [data-mx=step]{flex:1 1 100%!important;min-height:0!important;flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;text-align:left!important;padding:18px 20px!important;gap:16px!important}
+  [data-mx=step] svg{flex:none;width:30px;height:30px}
+  [data-mx=step]>span{margin-top:0!important}
+  [data-mx=step]>span:last-child{margin-left:auto;white-space:nowrap}
+  /* 핵심가치 카드 여백 */
+  [data-mx=core]{padding:26px 22px!important;gap:10px!important}
+  /* 프로그램 목록: 작은 사진(96px) → 사진 위, 설명 아래 1열 (사진 틀 비율 그대로) */
+  [data-mx=plrow]{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+}
