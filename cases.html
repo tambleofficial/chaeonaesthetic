@@ -373,8 +373,8 @@ a:hover{color:#F37021}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script="">
-const CASE_IMG = ['n-b1.jpg','n-f1.jpg','n-b2.jpg','n-f2.jpg','n-b3.jpg','n-f3.jpg','n-b4.jpg','n-f4.jpg','n-f5.jpg','n-f6.jpg','n-f7.jpg','c08.jpg','c12.jpg'];
-const CASE_PG = ['BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE'];
+const CASE_IMG = ['n-b1.jpg','n-f1.jpg','n-b2.jpg','n-f2.jpg','n-b3.jpg','n-b4.jpg','n-f4.jpg','n-f5.jpg','n-f6.jpg','n-f7.jpg','c08.jpg','c12.jpg'];
+const CASE_PG = ['BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','BODY CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE'];
 const CASE_KO = { 'BODY CARE': '바디 케어', 'FACE CARE': '페이스 케어' };
 const ALL = CASE_IMG.map((f, i) => ({ no: 'CASE ' + String(i + 1).padStart(2, '0'), program: CASE_PG[i], programKo: CASE_KO[CASE_PG[i]], tone: '#FAF6F2', img: 'assets/photos/' + f, imgB: 'assets/photos/blur/' + f.replace(/\.\w+$/, '.jpg') }));
 class Component extends DCLogic {

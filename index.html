@@ -747,8 +747,8 @@ const PROGRAMS = [
   { no: '02', en: 'BALANCE CARE', ko: '밸런스 관리', desc: '몸의 균형을 살펴보고, 현재 컨디션에 맞는 관리를 안내합니다.', tone: '#E7DBCF' },
   { no: '03', en: 'RELAX CARE', ko: '릴렉싱 관리', desc: '편안한 관리 경험을 중심으로 몸의 긴장을 부드럽게 풀어갑니다.', tone: '#F1E9E1' }
 ];
-const CASE_IMG = ['n-b1.jpg','n-f1.jpg','n-b2.jpg','n-f2.jpg','n-b3.jpg','n-f3.jpg','n-b4.jpg','n-f4.jpg','n-f5.jpg','n-f6.jpg','n-f7.jpg','c08.jpg','c11.jpg','c12.jpg'];
-const CASE_PG = ['BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE'];
+const CASE_IMG = ['n-b1.jpg','n-f1.jpg','n-b2.jpg','n-f2.jpg','n-b3.jpg','n-b4.jpg','n-f4.jpg','n-f5.jpg','n-f6.jpg','n-f7.jpg','c08.jpg','c12.jpg'];
+const CASE_PG = ['BODY CARE','FACE CARE','BODY CARE','FACE CARE','BODY CARE','BODY CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE','FACE CARE'];
 const CASE_KO = { 'BODY CARE': '바디 케어', 'FACE CARE': '페이스 케어' };
 const CASES = CASE_IMG.slice(0, 6).map((f, i) => ({ no: 'CASE ' + String(i + 1).padStart(2, '0'), program: CASE_PG[i], programKo: CASE_KO[CASE_PG[i]], tone: '#FAF6F2', img: 'assets/photos/' + f, imgB: 'assets/photos/blur/' + f.replace(/\.\w+$/, '.jpg') }));
 const REVIEWS = [
