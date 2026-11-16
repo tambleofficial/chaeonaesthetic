@@ -379,4 +379,41 @@ class Component extends DCLogic {
 </script>
 
 
+<script>
+/* 채온에스테틱: 사진 틀을 사진 원래 비율로 맞춤 (사진을 자르지 않음) */
+(function () {
+  var RE = /\/assets\/(photos|uploads|b)\//, done = new WeakMap(), sizes = {};
+  function urlOf(el) {
+    var cs = getComputedStyle(el);
+    if (el.tagName === 'IMG') return /cover/.test(cs.objectFit) ? (el.currentSrc || el.src) : null;
+    if (!/cover/.test(cs.backgroundSize)) return null;
+    var m = cs.backgroundImage.match(/url\("?([^")]+)"?\)/); return m ? m[1] : null;
+  }
+  function boxOf(el) { return getComputedStyle(el).position === 'absolute' && el.parentElement ? el.parentElement : el; }
+  function apply(el, u, n) {
+    var b = boxOf(el), r = b.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+    if (!r.width || !r.height) return;
+    done.set(el, u);
+    if (r.width >= vw * 0.95) return;
+    var ir = n[0] / n[1], br = r.width / r.height;
+    if (1 - Math.min(ir / br, br / ir) < 0.02) return;
+    b.style.setProperty('aspect-ratio', n[0] + ' / ' + n[1], 'important');
+    b.style.setProperty('height', 'auto', 'important');
+    b.style.setProperty('min-height', '0', 'important');
+    b.style.setProperty('max-height', 'none', 'important');
+    b.style.setProperty('align-self', 'flex-start', 'important');
+  }
+  function check(el) {
+    var u = urlOf(el); if (!u || !RE.test(u) || done.get(el) === u) return;
+    if (sizes[u]) return apply(el, u, sizes[u]);
+    var i = new Image(); i.onload = function () { sizes[u] = [i.naturalWidth, i.naturalHeight]; apply(el, u, sizes[u]); }; i.src = u;
+  }
+  function scan() { var l = document.querySelectorAll('img,[style*="url("]'); for (var k = 0; k < l.length; k++) check(l[k]); }
+  var t = 0; function soon() { if (t) return; t = requestAnimationFrame(function () { t = 0; scan(); }); }
+  new MutationObserver(soon).observe(document.documentElement, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+  [0, 300, 1000, 2500, 5000].forEach(function (d) { setTimeout(soon, d); });
+  addEventListener('load', soon); addEventListener('click', function () { setTimeout(soon, 50); setTimeout(soon, 400); }, true);
+  addEventListener('resize', function () { done = new WeakMap(); soon(); });
+})();
+</script>
 </body></html>
