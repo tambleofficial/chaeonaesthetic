@@ -450,33 +450,39 @@ class Component extends DCLogic {
 
 
 <script>
-/* 채온에스테틱: 사진 틀을 사진 원래 비율로 맞춤 (사진을 자르지 않음) */
+/* 채온에스테틱: 사진 틀은 디자인 크기 그대로, 사진은 자르지 않고 전체 표시 (빈 곳은 같은 사진을 흐리게 깔아 채움) */
 (function () {
-  var RE = /\/assets\/(photos|uploads|b)\//, done = new WeakMap(), sizes = {};
-  function urlOf(el) {
+  var RE = /\/assets\/(photos|uploads|b)\//, done = new WeakMap(), blurs = {};
+  function info(el) {
     var cs = getComputedStyle(el);
-    if (el.tagName === 'IMG') return /cover/.test(cs.objectFit) ? (el.currentSrc || el.src) : null;
+    if (el.tagName === 'IMG') return /cover/.test(cs.objectFit) ? { u: el.currentSrc || el.src, img: true } : null;
     if (!/cover/.test(cs.backgroundSize)) return null;
-    var m = cs.backgroundImage.match(/url\("?([^")]+)"?\)/); return m ? m[1] : null;
+    var m = cs.backgroundImage.match(/url\("?([^")]+)"?\)/); return m ? { u: m[1], img: false } : null;
   }
-  function boxOf(el) { return getComputedStyle(el).position === 'absolute' && el.parentElement ? el.parentElement : el; }
-  function apply(el, u, n) {
-    var b = boxOf(el), r = b.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+  function blurOf(u, im) {
+    if (blurs[u] !== undefined) return blurs[u];
+    try { var c = document.createElement('canvas'); c.width = 48; c.height = Math.max(8, Math.round(48 * im.naturalHeight / im.naturalWidth)); var x = c.getContext('2d'); x.filter = 'blur(3px)'; x.drawImage(im, -6, -6, c.width + 12, c.height + 12); blurs[u] = c.toDataURL('image/jpeg', 0.7); } catch (e) { blurs[u] = ''; }
+    return blurs[u];
+  }
+  function apply(el, inf, im) {
+    var r = el.getBoundingClientRect(), vw = document.documentElement.clientWidth;
     if (!r.width || !r.height) return;
-    done.set(el, u);
+    done.set(el, inf.u);
     if (r.width >= vw * 0.95) return;
-    var ir = n[0] / n[1], br = r.width / r.height;
-    if (1 - Math.min(ir / br, br / ir) < 0.02) return;
-    b.style.setProperty('aspect-ratio', n[0] + ' / ' + n[1], 'important');
-    b.style.setProperty('height', 'auto', 'important');
-    b.style.setProperty('min-height', '0', 'important');
-    b.style.setProperty('max-height', 'none', 'important');
-    var pcs = b.parentElement ? getComputedStyle(b.parentElement) : null; if (pcs && /flex/.test(pcs.display) && !/column/.test(pcs.flexDirection)) b.style.setProperty('align-self', 'flex-start', 'important'); else if (pcs && /grid/.test(pcs.display)) b.style.setProperty('align-self', 'start', 'important');
+    var ir = im.naturalWidth / im.naturalHeight, br = r.width / r.height;
+    var gap = 1 - Math.min(ir / br, br / ir); if (gap < 0.02 || gap > 0.3) return; /* 차이가 아주 큰 가로 공간 사진(사람 없음)은 틀을 꽉 채운 그대로 */
+    var b = blurOf(inf.u, im);
+    if (inf.img) { el.style.setProperty('object-fit', 'contain', 'important'); if (b) el.style.setProperty('background', 'url("' + b + '") center / cover no-repeat', 'important'); }
+    else {
+      el.style.setProperty('background-image', 'url("' + inf.u + '")' + (b ? ', url("' + b + '")' : ''), 'important');
+      el.style.setProperty('background-size', 'contain, cover', 'important');
+      el.style.setProperty('background-position', 'center, center', 'important');
+      el.style.setProperty('background-repeat', 'no-repeat, no-repeat', 'important');
+    }
   }
   function check(el) {
-    var u = urlOf(el); if (!u || !RE.test(u) || done.get(el) === u) return;
-    if (sizes[u]) return apply(el, u, sizes[u]);
-    var i = new Image(); i.onload = function () { sizes[u] = [i.naturalWidth, i.naturalHeight]; apply(el, u, sizes[u]); }; i.src = u;
+    var inf = info(el); if (!inf || !RE.test(inf.u) || done.get(el) === inf.u) return;
+    var im = new Image(); im.onload = function () { apply(el, inf, im); }; im.src = inf.u;
   }
   function scan() { var l = document.querySelectorAll('img,[style*="url("]'); for (var k = 0; k < l.length; k++) check(l[k]); }
   var t = 0; function soon() { if (t) return; t = requestAnimationFrame(function () { t = 0; scan(); }); }
