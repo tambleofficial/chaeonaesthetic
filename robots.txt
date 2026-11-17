@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chaeonaesthetic.com/sitemap.xml
+Sitemap: https://chaeonaesthetic.pages.dev/sitemap.xml

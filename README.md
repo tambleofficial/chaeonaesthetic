@@ -4,7 +4,7 @@
 
 ## 배포
 - Cloudflare Pages: Framework preset None / Build command 비움 / Build output directory `/`
-- 도메인을 연결하면 sitemap.xml, robots.txt, rss.xml, 각 html 의 canonical·og:url 주소를 그 도메인으로 맞춥니다(현재 chaeonaesthetic.com).
+- 도메인을 연결하면 sitemap.xml, robots.txt, rss.xml, 각 html 의 canonical·og:url 주소를 그 도메인으로 맞춥니다(현재 chaeonaesthetic.pages.dev).
 
 ## 관리자(편집 모드)
 - 주소: /edit (비밀번호 로그인). 글자는 눌러서 고치고, 사진은 눌러서 바꾼 뒤 "저장하기".
