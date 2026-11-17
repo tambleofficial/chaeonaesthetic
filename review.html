@@ -380,7 +380,7 @@ class Component extends DCLogic {
     b.style.setProperty('height', 'auto', 'important');
     b.style.setProperty('min-height', '0', 'important');
     b.style.setProperty('max-height', 'none', 'important');
-    b.style.setProperty('align-self', 'flex-start', 'important');
+    var pcs = b.parentElement ? getComputedStyle(b.parentElement) : null; if (pcs && /flex/.test(pcs.display) && !/column/.test(pcs.flexDirection)) b.style.setProperty('align-self', 'flex-start', 'important'); else if (pcs && /grid/.test(pcs.display)) b.style.setProperty('align-self', 'start', 'important');
   }
   function check(el) {
     var u = urlOf(el); if (!u || !RE.test(u) || done.get(el) === u) return;
